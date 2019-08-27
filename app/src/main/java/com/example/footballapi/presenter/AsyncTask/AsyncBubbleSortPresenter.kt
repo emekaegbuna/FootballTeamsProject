@@ -20,9 +20,14 @@ class AsyncBubbleSortPresenter: BasePresenter<AsyncView>(){
     }
 
     inner class AsyncBubbleSort: AsyncTask<Array<String>, Int, String>(){
+
+
+
         override fun onPreExecute() {
-            view!!.startProgBar(true)
             super.onPreExecute()
+            view!!.startProgBar(true)
+            Thread.sleep(3000)
+
         }
 
         override fun doInBackground(vararg p0: Array<String>?): String {
@@ -57,7 +62,7 @@ class AsyncBubbleSortPresenter: BasePresenter<AsyncView>(){
 
         override fun onPostExecute(result: String) {
             super.onPostExecute(result)
-            //view!!.startProgBar(false)
+            view!!.startProgBar(false)
             view!!.showAsyncView(result)
 
         }

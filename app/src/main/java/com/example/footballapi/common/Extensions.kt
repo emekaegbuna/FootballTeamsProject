@@ -45,15 +45,15 @@ class CallBackKt<T>: Callback<T> {
 //    loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 //}
 
-//fun Retrofit.crunch(baseURL: String): Retrofit {
-//    val loggingInterceptor = HttpLoggingInterceptor()
-//    val okHttpClient = OkHttpClient.Builder().addInterceptor(loggingInterceptor).build()
-//    loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-//    var reg = Retrofit.Builder()
-//        .baseUrl(baseURL)
-//        .client(okHttpClient)
-//        .addConverterFactory(GsonConverterFactory.create())
-//        .build()
-//
-//    return reg
-//}
+fun Retrofit.Builder.crunch(baseURL: String): Retrofit {
+    val loggingInterceptor = HttpLoggingInterceptor()
+    val okHttpClient = OkHttpClient.Builder().addInterceptor(loggingInterceptor).build()
+    loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+    var reg = Retrofit.Builder()
+        .baseUrl(baseURL)
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    return reg
+}
