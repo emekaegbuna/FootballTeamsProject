@@ -65,4 +65,6 @@ class FootballTeamsActivity : AppCompatActivity(), FootballView {
         intent.putExtra("teamid", id)
         startActivity(intent)
     }
+
+
 }

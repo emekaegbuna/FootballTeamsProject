@@ -3,6 +3,7 @@ package com.example.footballapi.view.teamDetail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.footballapi.R
+import com.example.footballapi.common.imagine
 import com.example.footballapi.model.teamDetail.TeamDetailModel
 import com.example.footballapi.presenter.teamDetail.TeamPresenter
 import com.example.footballapi.presenter.teamDetail.TeamView
@@ -24,6 +25,8 @@ class TeamDetailActivity : AppCompatActivity(), TeamView {
 
         //Log.d("teamdetaile", idTeam.toString())
         tv_team_detail_name.text = idTeam[0].strLeague
+        iv_teamdetail_logo.imagine(idTeam[0].strTeamLogo)
+        iv_teamdetail_fanart.imagine(idTeam[0].strTeamFanart1)
 
     }
 

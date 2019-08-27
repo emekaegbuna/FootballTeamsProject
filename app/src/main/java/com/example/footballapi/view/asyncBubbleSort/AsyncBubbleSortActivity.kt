@@ -13,7 +13,7 @@ class AsyncBubbleSortActivity : AppCompatActivity(), AsyncView{
         if (a == true){
 
             pb_async_bubble_sort.visibility = View.VISIBLE
-            Thread.sleep(3000)
+            //Thread.sleep(3000)
         }else if (a == false){
             pb_async_bubble_sort.visibility = View.GONE
         }
@@ -49,8 +49,10 @@ class AsyncBubbleSortActivity : AppCompatActivity(), AsyncView{
                     tv_async_result.text = "please enter values"
                 }
                 else{
-
+                    //pb_async_bubble_sort.visibility = View.VISIBLE
+                    //Thread.sleep(3000)
                     presenter.onViewAttached(this@AsyncBubbleSortActivity)
+                    //pb_async_bubble_sort.visibility = View.GONE
                 }
 
             }
