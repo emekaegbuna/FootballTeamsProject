@@ -67,4 +67,11 @@ class FootballTeamsActivity : AppCompatActivity(), FootballView {
     }
 
 
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        //presenter.disposeView()
+        presenter.compositeDisposable.dispose()
+    }
+
+
 }

@@ -10,6 +10,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 fun ViewGroup.inflatee(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View{
 
@@ -53,6 +54,7 @@ fun Retrofit.Builder.crunch(baseURL: String): Retrofit {
         .baseUrl(baseURL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
     return reg

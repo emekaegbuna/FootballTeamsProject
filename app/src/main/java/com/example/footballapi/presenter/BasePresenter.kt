@@ -16,5 +16,9 @@ abstract class BasePresenter<T : BasePresenter.View> {
         }
     }
 
+    open fun disposeView(){
+
+    }
+
     interface View
 }

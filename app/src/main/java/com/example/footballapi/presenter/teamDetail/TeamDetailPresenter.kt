@@ -6,6 +6,10 @@ import com.example.footballapi.model.teamDetail.TeamDetailModel
 import com.example.footballapi.network.teamDetail.TeamDetailInterface
 import com.example.footballapi.network.teamDetail.TeamDetailRetrofitInstance
 import com.example.footballapi.presenter.BasePresenter
+import io.reactivex.Observer
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 
 class TeamPresenter: BasePresenter<TeamView>() {
 
@@ -20,7 +24,32 @@ class TeamPresenter: BasePresenter<TeamView>() {
 
         //Log.d("0000000001102020", "this is working")
 
-        call.enqueue {
+        call
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : Observer<TeamDetailModel>{
+                override fun onComplete() {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onSubscribe(d: Disposable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onNext(t: TeamDetailModel) {
+                    view.showTeamDetailView(t)
+                }
+
+                override fun onError(e: Throwable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+            })
+
+
+
+
+        /*enqueue {
             onFailure = {
 
             }
@@ -32,7 +61,7 @@ class TeamPresenter: BasePresenter<TeamView>() {
 
                 view.showTeamDetailView(resp!!)
             }
-        }
+        }*/
 
 
 //        call.enqueue(object : Callback<FootballTeamsModel>{
